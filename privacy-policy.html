@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>سياسة الخصوصية - قد التحدي</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #a8d8ea 0%, #aa96da 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 40px,
+                rgba(255, 255, 255, 0.03) 40px,
+                rgba(255, 255, 255, 0.03) 80px
+            );
+            animation: moveStripes 40s linear infinite;
+        }
+
+        @keyframes moveStripes {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(80px, 80px); }
+        }
+
+        .floating-circles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.15), transparent);
+            animation: floatCircle 20s ease-in-out infinite;
+        }
+
+        @keyframes floatCircle {
+            0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.2; }
+            50% { transform: translate(40px, -40px) scale(1.1); opacity: 0.4; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Back Button */
+        .back-button-container {
+            margin-bottom: 30px;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 12px 24px;
+            border-radius: 50px;
+            color: rgb(66, 114, 225);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 107, 107, 0.6);
+            transform: translateX(-5px);
+            border-color: #ff6b6b;
+        }
+
+        /* Glass Section */
+        .glass-section {
+            background: rgba(255, 255, 255, 0.18);
+            backdrop-filter: blur(12px);
+            border-radius: 30px;
+            padding: 40px;
+            margin: 20px 0;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Logo Section */
+        .logo-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo-img {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #ff6b6b, #ff8c94);
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            animation: logoPulse 2.5s ease-in-out infinite;
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.4);
+            overflow: hidden;
+        }
+
+        .logo-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .logo-img i {
+            font-size: 3rem;
+            color: white;
+        }
+
+        @keyframes logoPulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 15px 40px rgba(255, 107, 107, 0.6); }
+        }
+
+        .game-title {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ff6b6b, #ffd3b6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255, 107, 107, 0.3);
+            backdrop-filter: blur(5px);
+            color: #ffd3b6;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid rgba(255, 107, 107, 0.5);
+        }
+
+        /* Section Headers */
+        .section-header {
+            margin: 35px 0 20px;
+        }
+
+        .section-header h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: rgba(85, 85, 85, 0.95);
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            border-right: 4px solid #040256;
+            padding-right: 15px;
+        }
+
+        .section-header h2 i {
+            color: #040256;
+        }
+
+        /* Content Cards */
+        .content-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border-radius: 20px;
+            padding: 25px;
+            margin: 20px 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s;
+        }
+
+        .content-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-3px);
+        }
+
+        .content-card h3 {
+            font-size: 1.3rem;
+            color: #040256;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .content-card p {
+            color: rgba(62, 60, 60, 0.85);
+            line-height: 1.8;
+            margin: 15px 0;
+            font-weight: 500;
+        }
+
+        .content-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .content-card li {
+            margin: 12px 0;
+            padding-right: 25px;
+            position: relative;
+            color: rgba(120, 119, 119, 0.85);
+            line-height: 1.6;
+        }
+
+        .content-card li:before {
+            content: "•";
+            color: #040256;
+            font-size: 1.2rem;
+            position: absolute;
+            right: 0;
+            top: -2px;
+        }
+
+        .alert-box {
+            background: rgba(255, 107, 107, 0.2);
+            border: 1px solid rgba(255, 107, 107, 0.4);
+            border-right: 4px solid #ff6b6b;
+            padding: 20px;
+            border-radius: 16px;
+            margin: 20px 0;
+        }
+
+        .alert-box strong {
+            color: #040256;
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .alert-box p {
+            margin: 0;
+            color: rgba(101, 101, 101, 0.9);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            text-align: center;
+            margin: 40px 0 20px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 24px;
+        }
+
+        .contact-section i {
+            font-size: 2.5rem;
+            color: #040256;
+            margin: 0 10px;
+        }
+
+        .contact-email {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
+            padding: 12px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: rgb(84, 83, 83);
+            font-weight: 600;
+            margin: 15px 0;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+
+        .contact-email:hover {
+            background: #ff6b6b;
+            transform: translateY(-3px);
+        }
+
+        .last-updated {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.85rem;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container { padding: 15px; }
+            .glass-section { padding: 25px; }
+            .section-header h2 { font-size: 1.5rem; }
+            .content-card h3 { font-size: 1.2rem; }
+            .game-title { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-animation">
+        <div class="floating-circles">
+            <div class="circle" style="width: 200px; height: 200px; top: 10%; left: -80px;"></div>
+            <div class="circle" style="width: 300px; height: 300px; bottom: 10%; right: -100px; animation-duration: 25s;"></div>
+            <div class="circle" style="width: 100px; height: 100px; top: 50%; right: 10%; animation-duration: 15s;"></div>
+            <div class="circle" style="width: 150px; height: 150px; bottom: 30%; left: 5%; animation-duration: 18s;"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Back Button -->
+        <div class="back-button-container">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-right"></i>
+                العودة إلى الصفحة الرئيسية
+            </a>
+        </div>
+
+        <!-- Privacy Policy Content -->
+        <div class="glass-section">
+            <!-- Logo Section -->
+            <div class="logo-section">
+                <div class="logo-img">
+                    <img src="images/logo-main.png" alt="شعار قد التحدي" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-skull\'></i>'">
+                    <i class="fas fa-skull" style="display: none;"></i>
+                </div>
+                <h1 class="game-title">قد التحدي؟</h1>
+                <div class="badge">سياسة الخصوصية</div>
+            </div>
+
+            <!-- First Section: Data Collection -->
+            <div class="section-header">
+                <h2><i class="fas fa-database"></i> أولاً: جمع البيانات</h2>
+            </div>
+            <div class="content-card">
+                <h3><i class="fas fa-chart-line"></i> 1.1 البيانات التي تجمعها خدمات الطرف الثالث</h3>
+                <p>لعبة "قد التحدي" نفسها لا تقوم بجمع أي بيانات شخصية. ومع ذلك، فإن خدمات الطرف الثالث التي نستخدمها (Google AdMob و Firebase) قد تقوم بجمع بعض البيانات التقنية لتشغيل الإعلانات وميزة اللعب عبر الإنترنت. هذه البيانات تشمل:</p>
+                <ul>
+                    <li><strong>معرف الإعلانات:</strong> معرف خاص بجهازك يستخدم لعرض الإعلانات المناسبة.</li>
+                    <li><strong>عنوان IP:</strong> يتم استخدامه لتحديد الموقع التقريبي ولأغراض أمنية.</li>
+                    <li><strong>نوع الجهاز ونظام التشغيل:</strong> لتحسين أداء الخدمات.</li>
+                    <li><strong>بيانات تقنية عن كيفية تفاعلك مع الإعلانات:</strong> مثل النقر على الإعلان أو مشاهدته.</li>
+                </ul>
+                <p>نحن لا نتحكم في هذه البيانات ولا نستخدمها لأي غرض آخر غير تشغيل خدمات اللعبة الأساسية.</p>
+            </div>
+
+            <!-- Second Section: Camera and Photos -->
+            <div class="section-header">
+                <h2><i class="fas fa-camera"></i> ثانياً: الكاميرا والصور</h2>
+            </div>
+            <div class="content-card">
+                <div class="alert-box">
+                    <strong><i class="fas fa-exclamation-triangle"></i> توضيح هام جداً</strong>
+                    <p>لعبة "قد التحدي" لا تطلب الوصول إلى الكاميرا ولا تصل إلى معرض الصور أو الملفات على جهازك مطلقاً.</p>
+                </div>
+
+                <h3><i class="fas fa-video"></i> 2.1 سياسة الوصول إلى الكاميرا</h3>
+                <p>اللعبة لا تحتوي على أي ميزة تتطلب استخدام الكاميرا. لذلك:</p>
+                <ul>
+                    <li>لا تطلب اللعبة إذن الوصول إلى الكاميرا عند التثبيت أو التشغيل.</li>
+                    <li>لا يوجد في اللعبة أي خيار لالتقاط الصور أو تسجيل الفيديو.</li>
+                    <li>لا يمكن للعبة الوصول إلى الكاميرا حتى لو كان الإذن ممنوحاً من جهازك.</li>
+                </ul>
+
+                <h3><i class="fas fa-images"></i> 2.2 سياسة الوصول إلى معرض الصور</h3>
+                <ul>
+                    <li>اللعبة لا تطلب الوصول إلى معرض الصور أو ملفات الوسائط.</li>
+                    <li>لا يمكن للعبة عرض أو قراءة أو تعديل أو حذف أي صور أو ملفات على جهازك.</li>
+                    <li>لا توجد ميزة لحفظ الصور من اللعبة أو تحميلها إلى جهازك.</li>
+                </ul>
+            </div>
+
+            <!-- Third Section: Ads and External Services -->
+            <div class="section-header">
+                <h2><i class="fas fa-ad"></i> ثالثاً: الإعلانات والخدمات الخارجية</h2>
+            </div>
+            <div class="content-card">
+                <h3><i class="fab fa-google"></i> 3.1 الإعلانات (Google AdMob)</h3>
+                <p>تعرض لعبة "قد التحدي" إعلانات باستخدام خدمة Google AdMob. تعتبر Google من الشركات الموثوقة والتي تتبع معايير صارمة للخصوصية. قد تقوم هذه الخدمة بجمع المعلومات التالية:</p>
+                <ul>
+                    <li><strong>معرف الإعلانات (Advertising ID):</strong> وهو معرف غير شخصي يستخدم لعرض إعلانات ملائمة.</li>
+                    <li><strong>عنوان IP:</strong> يستخدم لتحديد الموقع التقريبي وعرض إعلانات محلية مناسبة.</li>
+                    <li><strong>نوع الجهاز وإصدار نظام التشغيل:</strong> لضمان توافق الإعلانات مع جهازك.</li>
+                    <li><strong>تفاصيل الاتصال بالشبكة:</strong> مثل نوع الاتصال (WiFi أو بيانات الجوال).</li>
+                </ul>
+                <p>يمكنك التحكم في تخصيص الإعلانات من خلال إعدادات جهازك.</p>
+                <p>لمعرفة المزيد، راجع <a href="https://policies.google.com/privacy" target="_blank" style="color: #040256; text-decoration: none;">سياسة خصوصية Google <i class="fas fa-external-link-alt"></i></a></p>
+
+                <h3><i class="fas fa-fire"></i> 3.2 اللعب عبر الإنترنت (Firebase)</h3>
+                <p>نستخدم خدمة Firebase من Google لتوفير ميزة اللعب عبر الإنترنت بين اللاعبين. هذه الخدمة تمكن اللاعبين من الاتصال ببعضهم للعب سوياً.</p>
+                <ul>
+                    <li>يتم إنشاء رمز غرفة مؤقت للسماح للاعبين بالانضمام إلى نفس جلسة اللعب.</li>
+                    <li>يتم تبادل بيانات اللعبة الأساسية (مثل تحركات اللاعبين ونتائج الجولات) بين الأجهزة المشتركة في نفس الغرفة فقط.</li>
+                    <li><strong>لا يتم تخزين أي بيانات شخصية</strong> مثل الاسم أو البريد الإلكتروني أو سجل المحادثات.</li>
+                    <li>يتم حذف الغرف والمعلومات المرتبطة بها فور انتهاء جلسة اللعب.</li>
+                </ul>
+                <p>لمعرفة المزيد، راجع <a href="https://firebase.google.com/support/privacy" target="_blank" style="color: #040256; text-decoration: none;">سياسة خصوصية Firebase <i class="fas fa-external-link-alt"></i></a></p>
+            </div>
+
+            <!-- Fourth Section: Local Storage -->
+            <div class="section-header">
+                <h2><i class="fas fa-sd-card"></i> رابعاً: التخزين المحلي</h2>
+            </div>
+            <div class="content-card">
+                <h3><i class="fas fa-database"></i> 4.1 كيف يتم تخزين بيانات اللعبة؟</h3>
+                <p>جميع بيانات اللعبة (مثل تقدمك في المستويات، النقاط، الإعدادات) يتم تخزينها <strong>محلياً على جهازك فقط</strong>. هذا يعني:</p>
+                <ul>
+                    <li>البيانات لا تغادر جهازك أبداً.</li>
+                    <li>لا يمكننا الوصول إلى هذه البيانات أو رؤيتها.</li>
+                    <li>إذا قمت بحذف اللعبة، يتم حذف جميع البيانات بشكل نهائي.</li>
+                    <li>لا يمكن استعادة البيانات بعد حذف اللعبة.</li>
+                </ul>
+
+                <h3><i class="fas fa-clock"></i> 4.2 مدة الاحتفاظ بالبيانات</h3>
+                <p>تبقى البيانات على جهازك طالما أن اللعبة مثبتة. بمجرد حذف اللعبة، يتم حذف جميع البيانات تلقائياً.</p>
+            </div>
+
+            <!-- Fifth Section: Children's Privacy -->
+            <div class="section-header">
+                <h2><i class="fas fa-child"></i> خامساً: خصوصية الأطفال</h2>
+            </div>
+            <div class="content-card">
+                <p>نحن نولي اهتماماً خاصاً لخصوصية الأطفال. في لعبة "قد التحدي":</p>
+                <ul>
+                    <li>اللعبة آمنة للاستخدام من قبل جميع الأعمار.</li>
+                    <li>خدمات Google التي نستخدمها (AdMob و Firebase) تلتزم بقوانين حماية خصوصية الأطفال مثل COPPA.</li>
+                    <li>لا يتم جمع أي معلومات تعريف شخصية عن الأطفال.</li>
+                    <li>الإعلانات المعروضة للأطفال تخضع لسياسات خاصة من Google لضمان ملاءمتها.</li>
+                    <li>ننصح الآباء بالتحدث مع أطفالهم حول السلامة على الإنترنت ومراجعة إعدادات الخصوصية على أجهزتهم.</li>
+                </ul>
+            </div>
+
+            <!-- Sixth Section: Data Security -->
+            <div class="section-header">
+                <h2><i class="fas fa-lock"></i> سادساً: أمان البيانات</h2>
+            </div>
+            <div class="content-card">
+                <p>نحن نأخذ أمان بياناتك على محمل الجد. خدمات Google التي نستخدمها تطبق أعلى معايير الأمان لحماية المعلومات:</p>
+                <ul>
+                    <li>جميع الاتصالات مع خوادم Google مشفرة باستخدام بروتوكول HTTPS.</li>
+                    <li>Google تتبع معايير أمان صارمة ومعتمدة دولياً.</li>
+                    <li>بيانات اللعبة الأساسية تبقى محلياً على جهازك ولا تشارك مع أي خوادم.</li>
+                    <li>يتم تحديث اللعبة بانتظام لضمان أفضل أداء وأمان.</li>
+                    <li>اللعبة تتصل بالإنترنت فقط عند الحاجة لعرض الإعلانات أو عند استخدام ميزة اللعب عبر الإنترنت.</li>
+                </ul>
+            </div>
+
+            <!-- Seventh Section: Policy Changes -->
+            <div class="section-header">
+                <h2><i class="fas fa-history"></i> سابعاً: التغييرات على سياسة الخصوصية</h2>
+            </div>
+            <div class="content-card">
+                <p>قد نقوم بتحديث سياسة الخصوصية هذه من وقت لآخر. في حالة حدوث أي تغييرات جوهرية:</p>
+                <ul>
+                    <li>سيتم إشعارك من خلال تحديث الصفحة أو من خلال إشعار داخل اللعبة.</li>
+                    <li>في حالة التغييرات المهمة، قد نعرض إشعاراً داخل اللعبة.</li>
+                    <li>نشجعك على مراجعة هذه الصفحة بشكل دوري للاطلاع على أي تحديثات.</li>
+                </ul>
+                <p>استمرارك في استخدام اللعبة بعد التحديثات يعني موافقتك على السياسة المحدثة.</p>
+            </div>
+
+            <!-- Eighth Section: Your Rights -->
+            <div class="section-header">
+                <h2><i class="fas fa-gavel"></i> ثامناً: حقوقك وخياراتك</h2>
+            </div>
+            <div class="content-card">
+                <p>بناءً على استخدامنا لخدمات Google، لديك الحقوق التالية:</p>
+                <ul>
+                    <li><strong>التحكم في تخصيص الإعلانات:</strong> يمكنك إلغاء تخصيص الإعلانات من خلال إعدادات جهازك.</li>
+                    <li><strong>الوصول إلى البيانات:</strong> يمكنك مراجعة بياناتك والتحكم فيها من خلال إعدادات حساب Google الخاص بك (إذا كنت تستخدم حساب Google على جهازك).</li>
+                    <li><strong>حذف البيانات:</strong> معظم البيانات المرتبطة بخدمات Google يتم حذفها تلقائياً بعد فترة. يمكنك أيضاً حذف بياناتك من خلال إعدادات حساب Google.</li>
+                    <li><strong>إلغاء تثبيت اللعبة:</strong> يمكنك في أي وقت إلغاء تثبيت اللعبة، مما يزيل جميع البيانات المحفوظة محلياً.</li>
+                </ul>
+            </div>
+
+            <!-- Contact Section -->
+            <div class="contact-section">
+                <i class="fas fa-envelope"></i>
+                <i class="fas fa-phone-alt"></i>
+                <div>
+                    <a href="mailto:hello@adalt7dy.com" class="contact-email">
+                        <i class="fas fa-paper-plane"></i> hello@adalt7dy.com
+                    </a>
+                </div>
+                <p style="color: rgba(255,255,255,0.7); font-size: 0.85rem; margin-top: 15px;">للتواصل</p>
+            </div>
+
+        <!-- Footer Note -->
+        <div style="text-align: center; margin-top: 30px; color: rgba(255,255,255,0.6); font-size: 0.8rem;">
+               <p>© 2026 قد التحدي؟ | OSPREY GAMES</p>
+        </div>
+    </div>
+
+    <script>
+        // أي سكريبتات إضافية إذا لزم الأمر
+    </script>
+</body>
+</html>
