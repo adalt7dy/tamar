@@ -286,20 +286,15 @@
             margin: 0 10px;
         }
 
-        .contact-email {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(5px);
-            padding: 12px 28px;
-            border-radius: 50px;
-            text-decoration: none;
-            color: rgb(84, 83, 83);
-            font-weight: 600;
-            margin: 15px 0;
-            transition: all 0.3s;
-            border: 1px solid rgba(255, 255, 255, 0.25);
+        .contact-email{
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            width:fit-content;
+            max-width:95%;
+            margin:15px auto;
+            text-align:center;
+            word-break:break-word;
         }
 
         .contact-email:hover {
@@ -381,7 +376,7 @@
             <div class="content-card">
                 <div class="alert-box">
                     <strong><i class="fas fa-exclamation-triangle"></i> توضيح هام جداً</strong>
-                    <p>لعبة "قد التحدي" لا تطلب الوصول إلى الكاميرا ولا تصل إلى معرض الصور أو الملفات على جهازك مطلقاً.</p>
+                    <p>التطبيق لا يطلب الوصول الي الكاميرا ابدا</p>
                 </div>
 
                 <h3><i class="fas fa-video"></i> 2.1 سياسة الوصول إلى الكاميرا</h3>
@@ -393,11 +388,28 @@
                 </ul>
 
                 <h3><i class="fas fa-images"></i> 2.2 سياسة الوصول إلى معرض الصور</h3>
+
+                <p>
+                قد تطلب لعبة "قد التحدي" إذن الوصول إلى معرض الصور فقط عندما يختار المستخدم استخدام ميزة اختيار صورة داخل اللعبة.
+                </p>
+
                 <ul>
-                    <li>اللعبة لا تطلب الوصول إلى معرض الصور أو ملفات الوسائط.</li>
-                    <li>لا يمكن للعبة عرض أو قراءة أو تعديل أو حذف أي صور أو ملفات على جهازك.</li>
-                    <li>لا توجد ميزة لحفظ الصور من اللعبة أو تحميلها إلى جهازك.</li>
+                    <li>لا تقوم اللعبة بالوصول إلى جميع الصور أو الملفات الموجودة على جهازك.</li>
+                    <li>الوصول يقتصر فقط على الصورة التي يختارها المستخدم بنفسه.</li>
+                    <li>لا تقوم اللعبة بتعديل أو حذف أو إدارة أي صور أو ملفات موجودة على الجهاز.</li>
+                    <li>لا يتم جمع أو نسخ محتويات معرض الصور بشكل كامل.</li>
+                    <li>الصورة التي يختارها المستخدم فقط قد يتم إرسالها إلى خوادم Google Firebase لتوفير الوظائف المرتبطة باللعبة.</li>
+                    <li>يتم نقل الصورة باستخدام اتصالات مشفرة وآمنة لحماية البيانات أثناء الإرسال.</li>
+                    <li>يتم تخزين البيانات على خوادم Google Firebase المحمية والتي تطبق معايير أمان متقدمة لحماية المعلومات.</li>
+                    <li>لا يتم الوصول إلى أي صورة دون قيام المستخدم باختيارها بنفسه ومنحه الإذن اللازم لذلك.</li>
                 </ul>
+
+                <div class="alert-box">
+                    <strong><i class="fas fa-shield-alt"></i> حماية الصور والبيانات</strong>
+                    <p>
+                        الصورة التي يختارها المستخدم هي فقط ما يمكن أن يصل إلى خدمات اللعبة. لا يتم الوصول إلى بقية الصور الموجودة على الجهاز، ويتم نقل البيانات وتخزينها باستخدام وسائل حماية وأمان مقدمة من Google Firebase.
+                    </p>
+                </div>
             </div>
 
             <!-- Third Section: Ads and External Services -->
